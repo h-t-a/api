@@ -1,0 +1,11 @@
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+What Is AJAX?
+AJAX stands for Asynchronous JavaScript and XML. 
+It is a set of web development to build more responsive websites and applications. 
+AJAX allows web pages to update their content without users having to reload the page.
