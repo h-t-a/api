@@ -37,7 +37,6 @@ CREATE TABLE `db_smp`.`seller_post` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `seller_id` INT NOT NULL,
   `description` TEXT NULL,
-  `seller_password` VARCHAR(45) NULL,
   `qty` INT NULL,
   `unit_price` DECIMAL(10,2) NULL,
   `createdAt` DATETIME NULL,
@@ -54,3 +53,6 @@ CREATE TABLE `db_smp`.`pre_order` (
   `createdAt` DATETIME NULL,
   `updatedAt` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+
+DROP TABLE `db_smp`.`seller_post`;

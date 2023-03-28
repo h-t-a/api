@@ -23,7 +23,6 @@ exports.createSeller = (req, res) => {
 }
 
 exports.sellerList = async (req, res) => {
-
     var sellerList = await sellerModel.get_all();
     if(sellerList){
         apiresponses.successResponse(req, res, "Seller List", common.prettifyArray(sellerList));
@@ -31,4 +30,32 @@ exports.sellerList = async (req, res) => {
     }else{
         apiresponses.errorResponse(req, res, `Error!`);
     }
+}
+
+exports.sellerDetails = (req, res) => {
+    var id = req.params.id;
+    sellerModel.find(id).then((value) => {
+        apiresponses.successResponse(req, res, "Details", value);
+    }).catch((err) => {
+        apiresponses.errorResponse(req, res, err);
+    });
+}
+
+exports.updateSeller = (req, res) => {
+    var id = req.params.id;
+    var data = req.body;
+    sellerModel.update(id, data).then((value) => {
+        apiresponses.successResponse(req, res, "Updated!", "");
+    }).catch((err) => {
+        apiresponses.errorResponse(req, res, err);
+    });
+}
+
+exports.deleteSeller = (req, res) => {
+    var id = req.params.id;
+    sellerModel.delete(id).then((value) => {
+        apiresponses.successResponse(req, res, "Deleted!", "");
+    }).catch((err) => {
+        apiresponses.errorResponse(req, res, err);
+    });
 }

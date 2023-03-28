@@ -1,5 +1,11 @@
-
+var md5 = require('md5')
 var moment = require('moment'); //A JavaScript date library for parsing, validating, manipulating, and formatting dates.    
+var jwt = require('jsonwebtoken');
+var secret = 'hosta';
+
+exports.encryptPassword = (password) => {
+    return md5(md5(password) + 'bear&masha');
+}
 
 exports.now = () => {
     const date = new Date();

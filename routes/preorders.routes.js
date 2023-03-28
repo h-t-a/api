@@ -1,11 +1,11 @@
-var preOrdersModel = require('../models').preOrdersModel;
-var common = require('../utils/common.js');
-var apiresponses = require('../utils/apiresponses.js')
+var preorderscontrollers = require('../controllers/preorders.controllers.js');
 
-exports.createSeller = (req, res) => {
-    //do something...
-}
 
-exports.sellerList = async (req, res) => {
-    //do something...
+module.exports = function(app) {
+    app.post('/preorders/create', preorderscontrollers.createOrder);
+    app.get('/preorders/lists',preorderscontrollers.preorderList);    
+    app.get('/preorders/details/:id', preorderscontrollers.preorderDetails); 
+    app.patch('/preorders/lists/:id', preorderscontrollers.updatePreorder);
+    app.delete('/preorders/lists/:id', preorderscontrollers.deletePreorder);
+    
 }

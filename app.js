@@ -24,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./routes/buyers.routes')(app);
 require('./routes/sellers.routes')(app);
+require('./routes/preorders.routes')(app);
+require('./routes/sellerposts.routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
